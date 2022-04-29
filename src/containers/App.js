@@ -1,8 +1,10 @@
+// import { GetData } from "../helpers/GetData";
+import MainContainers from "./MainContainers";
+
 function App() {
   return (
-    <div className="App">
-      <h1>hola</h1>
-    </div>
+    <MainContainers/>
+    
   );
 }
 
