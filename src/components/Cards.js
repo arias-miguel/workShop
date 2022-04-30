@@ -1,22 +1,24 @@
 import React, { Component } from "react";
-import { Card } from "react-bootstrap";
+import { Card,Button } from "react-bootstrap";
 
 export default class Cards extends Component {
     render() {
-        // const { image, superhero, publisher } = this.props.heroe
-
+        const { name, description, img, precio} = this.props.producto;
+        const id = this.key
         return (
             <div>
-                <Card style={{ width: '18rem', color: 'black' }}>
-                    {/* <Card.Img variant="top" /> */}
+                <Card style={{ width: '18rem', color: 'black', borderStyle:'none' }}>
+                    <Card.Img variant="top" src={img} />
                     <Card.Body>
                         <Card.Title>
-                            {/* {superhero} */}hola
+                            {name}
                         </Card.Title>
                         <Card.Text>
-                            {/* {publisher} */}hols
+                            {description}
                         </Card.Text>
+                        <div>$ {precio}/kg</div>
                     </Card.Body>
+                    <Button variant="success" style={{ width: '70%', marginLeft:'15%'}} onClick={console.log(id)}>Agregar</Button>
                 </Card>
             </div>
         );

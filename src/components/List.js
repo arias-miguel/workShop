@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
-import { GetData } from "../helpers/GetData";
+import { Url } from "../helpers/Url";
+import { MainCards } from "../styles/ListStyle";
 import Cards from "./Cards";
 
 export default class List extends Component {
@@ -10,43 +10,32 @@ export default class List extends Component {
             productos: []
         }
     }
-
     componentDidMount() {
         console.log('Se acaba de montar');
         this.getProductos()
     }
-
-    getProductos = async () => {
-        // const url = 'https://raw.githubusercontent.com/jennymontoya1001/endpointheroesjson/main/'
-        // const resp = await fetch(url)
+    getProductos  = async () => {
+        const respuesta = await fetch(Url)
+        const datos = await respuesta.json()
+        console.log(datos)
         
-        // // const data = await resp.json()
-        // // const {results} = data
-
-        // const { results } = await resp.json()
-        console.table(GetData())
-        console.log('datos')
-
         this.setState({
-            productos : GetData
+            productos : datos
         })
     }
-
     render() {
         return (
-            <Container>
-                <h1 color="white" >Lista de productos</h1>
-                <hr />
-                <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+            <MainCards>
+                <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
                     {
                         this.state.productos.map((items, index) => (
                             <Cards producto={items} key={index}
                             />
                         ))
                     }
+                    
                 </div>
-
-            </Container>
+            </MainCards>
         );
     }
 }
