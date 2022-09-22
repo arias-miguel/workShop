@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Url } from "../helpers/Url";
+import { Url } from "../helpers/url";
 import { MainCards } from "../styles/ListStyle";
 import Cards from "./Cards";
 
